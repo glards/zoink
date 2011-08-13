@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Stats{% endblock %}
+
+{% block content %}
+      <table>
+          <thead>
+              <tr>
+                  <td>Date</td>
+                  <td>Torrent name</td>
+                  <td>IP</td>
+              </tr>
+          </thead>
+          <tbody>
+            {% for item in stats %}
+            <tr>
+                <td>{{ item.date }}</td>
+                <td>{{ item.torrent.name }}</td>
+                <td>{{ item.ip_address }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+{% endblock %}

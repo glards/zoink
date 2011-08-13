@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+      <table>
+          <thead>
+              <tr>
+                  <td>Date</td>
+                  <td>Torrent name</td>
+          </thead>
+          <tbody>
+            {% for item in torrents %}
+            <tr>
+                <td>{{ item.added.date }}</td>
+                <td><a onclick="trackClick('{% url click item.id %}')" href="{{ item.url }}" target="_blank">{{ item.name|safe }}</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+{% endblock %}

@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title>Zoink it :: {% block title %}{% endblock %}</title>
+		<style type="text/css">
+		body {
+			background-color: darkgrey;
+			color: white;
+		}
+
+		#menu {
+			float:right;
+			padding-right: 100px;
+			padding-bottom: 5px;
+			padding-left:15px;
+			border-bottom: 1px solid white;
+		}
+
+		.logo {
+			margin-top: 20px;
+			font-size: large;
+			font-weight: bolder;
+			font-family: fantasy;
+		}
+
+		.clr  {
+			clear: both;
+		}
+                a:visited {
+                        color: black;
+                }
+
+                a:link {
+                        color: olive;
+                }
+		</style>
+                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+                <script type="text/javascript">
+                    function trackClick(url) {
+                        $.get(url);
+                        return true;
+                    }
+                </script>
+	</head>
+	<body>
+		<div id="header">
+			<span class="logo">Zoink It !</span>
+			<div id="menu">
+                            <a href="/">Home</a> | Search: <form action="/search" method="GET"><input type="text" name="q"/> <input type="submit" value="Go"/></form>
+			</div>
+			<div class="clr"></div>
+		</div>
+
+		<div id="content">
+                    {% block content %}{% endblock %}
+		</div>
+
+		<div id="footer">
+                    That's all folks !
+		</div>
+	</body>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12515932-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% regroup torrents by added.date as torrent_days %}
+{% for torrent in torrent_days %}
+<u>Torrents du {{ torrent.grouper }}:</u>
+<ul>
+        {% for item in torrent.list|dictsort:"name" %}
+        <li><a onclick="trackClick('{% url click item.id %}')" href="{{ item.url }}" target="_blank">{{ item.name|safe }}</a></li>
+        {% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}
